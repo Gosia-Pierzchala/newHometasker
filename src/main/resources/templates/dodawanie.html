@@ -9,7 +9,7 @@
 <h1>Dodaj zadanie</h1>
 
 <form action="/dodaj" method="post" th:object="${newTask}">
-    <p>Unikatowy numer zadania: <input type="text" th:field="*{numer}"/> </p>
+    <p>Unikatowy numer zadania: <input type="text" th:field="*{id}"/> </p>
     <p>Opis: <input type="text" th:field="*{opis}"/> </p>
     <p>Imię: <form>
     <select>

@@ -23,7 +23,7 @@
     </thead>
     <tbody>
     <tr th:each="task: ${allTasks}">
-        <td th:text="${task.numer}"></td>
+        <td th:text="${task.id}"></td>
         <td th:text="${task.opis}"></td>
         <td th:text="${task.imie}"></td>
         <td th:text="${task.punkty}"></td>
@@ -34,6 +34,7 @@
 
 <h1>Przydatne linki</h1>
 <a href="/dodaj" target="_blank">Dodaj zadanie</a></br>
+<a href="/edytuj" target="_blank">Edytuj zadanie</a></br>
 <a href="/dodajosobe" target="_blank">Dodaj osobę</a>
 
 </body>

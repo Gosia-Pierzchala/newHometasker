@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class TaskAndPeopleRepository {
+public class HomeTaskerRepository {
     private List<Person> people;
     private List<Task> tasks;
 
-    public TaskAndPeopleRepository(){
+    public HomeTaskerRepository(){
     people = new ArrayList<>();
     Person osoba1 = new Person("Janek");
     Person osoba2 = new Person("Zosia");
@@ -23,12 +23,12 @@ public class TaskAndPeopleRepository {
     people.add(osoba3);
 
     tasks = new ArrayList<>();
-    tasks.add(new Task(1,"Mycie podłóg", osoba1.getImie(), 3, 2018, 12, 30, 18, 00));
+    tasks.add(new Task(1, "Mycie podłóg", osoba1.getImie(), 3, 2018, 12, 30, 18, 00));
     tasks.add(new Task(2, "Malowanie", osoba2.getImie(), 10, 2020, 9, 30, 19, 00));
     tasks.add(new Task(3, "Wyniesienie śmieci", osoba2.getImie(), 1, 2018, 10, 31, 12, 30));
     }
 
-    public List<Task> getAll(){
+    public List<Task> getTasks(){
         return tasks;
     }
 
@@ -52,12 +52,11 @@ public class TaskAndPeopleRepository {
         people.remove(person);
     }
 
-    public Task findByDescription(String opis) {
-        for (Task task: tasks) {
-            if(task.getOpis().equals(opis)) {
+    public Task findById(int id){
+        for (Task task: tasks){
+            if(id == task.getId()){
                 return task;
             }
-        }
-        return null;
+        } return null;
     }
 }

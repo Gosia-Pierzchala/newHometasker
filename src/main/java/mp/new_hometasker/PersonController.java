@@ -9,15 +9,15 @@ import java.util.List;
 
 @Controller
 public class PersonController {
-    private TaskAndPeopleRepository taskAndPeopleRepository;
+    private HomeTaskerRepository homeTaskerRepository;
 
-    public PersonController(TaskAndPeopleRepository taskAndPeopleRepository) {
-        this.taskAndPeopleRepository = taskAndPeopleRepository;
+    public PersonController(HomeTaskerRepository homeTaskerRepository) {
+        this.homeTaskerRepository = homeTaskerRepository;
     }
 
     @GetMapping("/users")
     public String peopleList (Model model){
-        List<Person> people = taskAndPeopleRepository.getPeople();
+        List<Person> people = homeTaskerRepository.getPeople();
         model.addAttribute("allPeople", people);
         return "users";
     }
@@ -30,7 +30,7 @@ public class PersonController {
 
     @PostMapping("/dodajosobe")
     public String addPerson(Person person){
-        taskAndPeopleRepository.addPerson(person);
+        homeTaskerRepository.addPerson(person);
         return "users";
     }
 }

@@ -7,13 +7,12 @@
 </head>
 <body>
 
-<h1>Domownicy</h1>
+<h1>Lista domowników</h1>
 
 <ul>
-    <li th:each="person: ${allPeople}">
-        th:text="${person.imie}
+    <li th:each="person: ${allPeople}"> <span th:text="${person.imie}"></span>
     </li>
-    </ul>
+</ul>
 
 </body>
 </html>

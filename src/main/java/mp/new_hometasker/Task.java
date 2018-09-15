@@ -2,11 +2,13 @@ package mp.new_hometasker;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Task {
     Person person = new Person();
-    private int numer;
+
+    private int id;
     private String opis;
     private String imie = person.getImie();
     private int punkty;
@@ -16,20 +18,20 @@ public class Task {
     public Task(){
     }
 
-    public Task(int numer, String opis, String imie, int punkty, int rok, int miesiac, int dzien, int godzina, int minuty) {
-        this.numer = numer;
+    public Task(int id, String opis, String imie, int punkty, int rok, int miesiac, int dzien, int godzina, int minuty) {
+        this.id = id;
         this.opis = opis;
         this.imie = imie;
         this.punkty = punkty;
         this.date = LocalDateTime.of(rok, miesiac, dzien, godzina, minuty);
     }
 
-    public int getNumer() {
-        return numer;
+    public int getId() {
+        return id;
     }
 
-    public void setNumer(int numer) {
-        this.numer = numer;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getOpis() {
@@ -64,3 +66,5 @@ public class Task {
         this.date = date;
     }
 }
+
+
