@@ -39,13 +39,33 @@ public class TaskController {
 
     @GetMapping("/edytuj")
     public String edit(Model model, @RequestParam (value = "id", required = false, defaultValue = "1") int id){
+        List<Person> people = homeTaskerRepository.getPeople();
+        List<Task> tasks = homeTaskerRepository.getTasks();
         Task task = homeTaskerRepository.findById(id);
+        model.addAttribute("allPeople", people);
+        model.addAttribute("allTasks", tasks);
         model.addAttribute("task", task);
         return "edytowanie";
     }
 
     @PostMapping("/edytuj")
     public String editTask(Task task){
+
         return "homepage";
+    }
+
+    @GetMapping("/usun")
+    public String remove (Model model, @RequestParam (value = "id", required = false, defaultValue = "1") int id){
+        List<Task> tasks = homeTaskerRepository.getTasks();
+        Task task = homeTaskerRepository.findById(id);
+        model.addAttribute("allTasks", tasks);
+        model.addAttribute("task", task);
+        return "usuwanie";
+    }
+
+    @PostMapping("/usun")
+    public String removeTask(Task task){
+        homeTaskerRepository.removeTask(task);
+        return "redirect:/";
     }
 }

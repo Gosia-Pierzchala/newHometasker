@@ -1,8 +1,6 @@
 package mp.new_hometasker;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Task {
@@ -66,5 +64,3 @@ public class Task {
         this.date = date;
     }
 }
-
-

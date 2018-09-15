@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hometasker</title>
+</head>
+<body>
+
+<h1>Usuń zadanie</h1>
+
+<form action="/usun" method="post" th:object="${task}">
+    <p>Wybierz numer zadania: <form>
+    <select>
+        <option th:each="task: ${allTasks}" th:text="${task.id}"> </option>
+    </select> </form> </p>
+    <input type="submit" value="Usuń!"/> <br>
+</form>
+
+</body>
+</html>
