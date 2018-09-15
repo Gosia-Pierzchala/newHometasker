@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hometasker</title>
+</head>
+<body>
+
+<h1>Edytuj zadanie</h1>
+
+<form action="/edytuj" method="post" th:object="${task}">
+    <input type="text" th:field="*{opis}" placeholder="Opis" /> <br>
+    <input type="text" th:field="*{imie}" placeholder="Osoba" /> <br>
+    <input type="text" th:field="*{punkty}" placeholder="Punkty" /> <br>
+    <input type="datetime-local" th:field="*{date}" placeholder="Termin Wykonania" /> <br>
+    <input type="submit" value="Edytuj!" /> <br>
+</form>
+
+</body>
+</html>

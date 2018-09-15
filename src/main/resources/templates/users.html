@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+
+<h1>Domownicy</h1>
+
+<ul>
+    <li th:each="person: ${allPeople}">
+        th:text="${person.imie}
+    </li>
+    </ul>
+
+</body>
+</html>

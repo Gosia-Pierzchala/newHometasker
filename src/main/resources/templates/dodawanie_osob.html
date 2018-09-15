@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hometasker</title>
+</head>
+<body>
+
+<h1>Dodaj osobe</h1>
+
+<form action="/dodajosobe" method="post" th:object="${newPerson}">
+    <input type="text" th:field="*{imie}" placeholder="Imię" /> <br>
+    <input type="submit" value="Dodaj!" /> <br>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Przykład Bootstrap</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <title>Hometasker</title>
+</head>
+<body>
+
+<h1>Hometasker</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Numer zadania</th>
+        <th scope="col">Opis</th>
+        <th scope="col">Osoba</th>
+        <th scope="col">Punkty</th>
+        <th scope="col">Termin wykonania</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task: ${allTasks}">
+        <td th:text="${task.numer}"></td>
+        <td th:text="${task.opis}"></td>
+        <td th:text="${task.imie}"></td>
+        <td th:text="${task.punkty}"></td>
+        <td th:text="${task.date}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h1>Przydatne linki</h1>
+<a href="/dodaj" target="_blank">Dodaj zadanie</a></br>
+<a href="/dodajosobe" target="_blank">Dodaj osobę</a>
+
+</body>
+</html>
