@@ -1,6 +1,5 @@
 package mp.new_hometasker;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,10 +45,7 @@ public class TaskController {
     }
 
     @PostMapping("/edytuj")
-    public String editTask(Task task, Model model){
-        homeTaskerRepository.addTask(task);
-        List<Task> tasks = homeTaskerRepository.getTasks();
-        model.addAttribute("tasks", tasks);
+    public String editTask(Task task){
         return "homepage";
     }
 }
