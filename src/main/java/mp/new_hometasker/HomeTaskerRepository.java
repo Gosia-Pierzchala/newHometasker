@@ -60,4 +60,12 @@ public class HomeTaskerRepository {
         } return null;
     }
 
+    public Person find(String imie){
+        for(Person person: people){
+            if(imie.equals(person.getImie())){
+               return person;
+            }
+        }
+        return null;
+    }
 }

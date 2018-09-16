@@ -33,7 +33,7 @@ public class ConvertStringToPerson {
         @Override
         public Person convert(String from) {
             String[] data = from.split(" ");
-            return homeTaskerRepository.find(data[0], data[1]);
+            return homeTaskerRepository.find(data[0]);
         }
     }
 }
