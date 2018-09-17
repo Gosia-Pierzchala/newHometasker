@@ -31,6 +31,6 @@ public class PersonController {
     @PostMapping("/dodajosobe")
     public String addPerson(Person person){
         homeTaskerRepository.addPerson(person);
-        return "users";
+        return "redirect:/users";
     }
 }

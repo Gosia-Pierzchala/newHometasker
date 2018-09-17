@@ -11,11 +11,11 @@
 <form action="/dodaj" method="post" th:object="${newTask}">
     <p>Unikatowy numer zadania: <input type="text" th:field="*{id}"/> </p>
     <p>Opis: <input type="text" th:field="*{opis}"/> </p>
-    <p>Imię: <form>
+    <p>Imię:
     <select>
         <option th:each="person: ${allPeople}" th:text="${person.imie}"> </option>
     </select>
-</form> </p>
+ </p>
     <p>Punkty: <input type="text" th:field="*{punkty}"/> </p>
     <p>Termin wykonania: <input type="datetime-local" th:field="*{date}"/> </p>
     <p><input type="submit" value="Dodaj!" /> <br>
