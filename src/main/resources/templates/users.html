@@ -21,7 +21,9 @@
     <tbody>
     <tr th:each="person: ${people}">
         <td th:text="${person.id}"></td>
-        <td th:text="${person.name}"></td>
+        <td>
+            <a th:href="'/person?id=' + ${person.id}" th:text="${person.name}"></a>
+        </td>
         <td>
             <a th:href="'/edytujOsobe?id=' + ${person.id}">Edycja</a>
             <a th:href="'/usunOsobe?id=' + ${person.id}">Usuń</a>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hometasker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div style="margin: auto">
+
+    <h1 th:text="'Id: ' + ${person.id}"></h1>
+    <h1 th:text="'Imię: ' + ${person.name}"></h1>
+    <h1>Przypisane zadania: </h1>
+
+</div>
+
+<div style="width: 400px">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Opis</th>
+            <th>Punkty</th>
+            <th>Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task: ${tasks}">
+            <td th:text="${task.opis}"></td>
+            <td th:text="${task.punkty}"></td>
+            <td th:datetime-local="${task.date}"></td>
+        </tr></tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
