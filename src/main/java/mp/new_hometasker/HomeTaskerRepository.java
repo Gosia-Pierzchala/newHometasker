@@ -70,6 +70,15 @@ public class HomeTaskerRepository {
         } return foundPerson;
     }
 
+    public void editTask(Task task, long id){
+        Task task1 = findTaskById(id);
+        task1.setId(task.getId());
+        task1.setOpis(task.getOpis());
+        task1.setPerson(task.getPerson());
+        task1.setPunkty(task.getPunkty());
+        task1.setDate(task.getDate());
+    }
+
     public void editPerson(Person person, long id){
         Person person1 = findPersonById(id);
         person1.setId(person.getId());

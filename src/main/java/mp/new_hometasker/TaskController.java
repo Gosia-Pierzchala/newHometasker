@@ -44,4 +44,19 @@ public class TaskController {
         return "redirect:/";
     }
 
+    @GetMapping("/edytujZadanie")
+    public String edit(@RequestParam long id, Model model) {
+        Task task = homeTaskerRepository.findTaskById(id);
+        List<Person> people = homeTaskerRepository.getPeople();
+        model.addAttribute("task", task);
+        model.addAttribute("people", people);
+        return "editTask";
+    }
+
+    @PostMapping("/edytujZadanie")
+    public String edit(@RequestParam Long id, Task task) {
+        homeTaskerRepository.editTask(task, id);
+        return "redirect:/";
+    }
+
 }
