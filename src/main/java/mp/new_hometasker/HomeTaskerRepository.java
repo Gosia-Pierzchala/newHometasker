@@ -70,6 +70,12 @@ public class HomeTaskerRepository {
         } return foundPerson;
     }
 
+    public void editPerson(Person person, long id){
+        Person person1 = findPersonById(id);
+        person1.setId(person.getId());
+        person1.setName(person.getName());
+    }
+
     public Person find(String imie){
         for(Person person: people){
             if(imie.equals(person.getName())){

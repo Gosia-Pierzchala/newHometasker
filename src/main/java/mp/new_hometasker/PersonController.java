@@ -42,4 +42,17 @@ public class PersonController {
         return "redirect:/users";
     }
 
+    @GetMapping("/edytujOsobe")
+    public String edit(@RequestParam long id, Model model) {
+        Person person = homeTaskerRepository.findPersonById(id);
+        model.addAttribute("person", person);
+        return "editPerson";
+    }
+
+    @PostMapping("/edytujOsobe")
+    public String edit(@RequestParam Long id, Person person) {
+        homeTaskerRepository.editPerson(person, id);
+        return "redirect:/users";
+    }
+
 }
