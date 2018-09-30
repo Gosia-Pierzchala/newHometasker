@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -33,4 +34,12 @@ public class PersonController {
         homeTaskerRepository.addPerson(person);
         return "redirect:/users";
     }
+
+    @GetMapping("/usunOsobe")
+    public String delete(@RequestParam long id) {
+        Person person = homeTaskerRepository.findPersonById(id);
+        homeTaskerRepository.removePerson(person);
+        return "redirect:/users";
+    }
+
 }

@@ -52,12 +52,22 @@ public class HomeTaskerRepository {
         people.remove(person);
     }
 
-    public Task findById(int id){
+    public Task findTaskById(long id){
+        Task foundTask = new Task();
         for (Task task: tasks){
             if(id == task.getId()){
-                return task;
+                foundTask = task;
             }
-        } return null;
+        } return foundTask;
+    }
+
+    public Person findPersonById(long id){
+        Person foundPerson = new Person();
+        for (Person person: people){
+            if(id == person.getId()){
+                foundPerson = person;
+            }
+        } return foundPerson;
     }
 
     public Person find(String imie){

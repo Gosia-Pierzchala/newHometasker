@@ -37,4 +37,11 @@ public class TaskController {
         return "redirect:/homepage";
     }
 
+    @GetMapping("/usunZadanie")
+    public String delete(@RequestParam long id) {
+        Task task = homeTaskerRepository.findTaskById(id);
+        homeTaskerRepository.removeTask(task);
+        return "redirect:/";
+    }
+
 }
