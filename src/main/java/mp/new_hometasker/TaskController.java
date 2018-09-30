@@ -19,53 +19,22 @@ public class TaskController {
     @GetMapping("/")
     public String taskList(Model model){
         List<Task> tasks = homeTaskerRepository.getTasks();
-        model.addAttribute("allTasks", tasks);
+        model.addAttribute("tasks", tasks);
         return "homepage";
     }
 
-    @GetMapping("/dodaj")
+    @GetMapping("/dodajZadanie")
     public String showAddForm(Model model){
         List<Person> people = homeTaskerRepository.getPeople();
-        model.addAttribute("allPeople", people);
-        model.addAttribute("newTask", new Task());
-        return "dodawanie";
+        model.addAttribute("people", people);
+        model.addAttribute("task", new Task());
+        return "addTask";
     }
 
-    @PostMapping("/dodaj")
+    @PostMapping("/dodajZadanie")
     public String addTask(Task task){
         homeTaskerRepository.addTask(task);
-        return "redirect:/";
+        return "redirect:/homepage";
     }
 
-    @GetMapping("/edytuj")
-    public String edit(Model model, @RequestParam (value = "id", required = false, defaultValue = "1") int id){
-        List<Person> people = homeTaskerRepository.getPeople();
-        List<Task> tasks = homeTaskerRepository.getTasks();
-        Task task = homeTaskerRepository.findById(id);
-        model.addAttribute("allPeople", people);
-        model.addAttribute("allTasks", tasks);
-        model.addAttribute("task", task);
-        return "edytowanie";
-    }
-
-    @PostMapping("/edytuj")
-    public String editTask(Task task){
-
-        return "homepage";
-    }
-
-    @GetMapping("/usun")
-    public String remove (Model model, @RequestParam (value = "id", required = false, defaultValue = "1") int id){
-        List<Task> tasks = homeTaskerRepository.getTasks();
-        Task task = homeTaskerRepository.findById(id);
-        model.addAttribute("allTasks", tasks);
-        model.addAttribute("task", task);
-        return "usuwanie";
-    }
-
-    @PostMapping("/usun")
-    public String removeTask(Task task){
-        homeTaskerRepository.removeTask(task);
-        return "redirect:/";
-    }
 }

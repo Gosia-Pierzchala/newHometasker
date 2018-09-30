@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Przykład Bootstrap</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
     <title>Hometasker</title>
@@ -19,24 +18,29 @@
         <th scope="col">Osoba</th>
         <th scope="col">Punkty</th>
         <th scope="col">Termin wykonania</th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="task: ${allTasks}">
+    <tr th:each="task: ${tasks}">
         <td th:text="${task.id}"></td>
         <td th:text="${task.opis}"></td>
-        <td th:text="${task.imie}"></td>
+        <td th:text="${task.person.name}"></td>
         <td th:text="${task.punkty}"></td>
         <td th:text="${task.date}"></td>
+        <td>
+            <a th:href="'/edytujZadanie?id=' + ${task.id}">Edycja</a>
+            <a th:href="'/usunZadanie?id=' + ${task.id}">Usuń</a>
+            <a th:href="'/zakonczZadanie?id=' + ${task.id}">Zakończ zadanie</a>
+        </td>
     </tr>
     </tbody>
 </table>
 
 <h1>Przydatne linki</h1>
-<a href="/dodaj" target="_blank">Dodaj zadanie</a></br>
-<a href="/edytuj" target="_blank">Edytuj zadanie</a></br>
-<a href="/usun" target="_blank">Usuń zadanie</a></br>
-<a href="/dodajosobe" target="_blank">Dodaj osobę</a>
+<a href="/dodajZadanie" target="_blank">Dodaj zadanie</a></br>
+<a href="/users" target="_blank">Lista domowników</a></br>
+<a href="/archiwum" target="_blank">Archiwum</a>
 
 </body>
 </html>

@@ -1,21 +1,31 @@
 package mp.new_hometasker;
 
 public class Person {
-    private String imie;
+
+    private long id;
+    private String name;
 
     public Person(){
     }
 
-    public Person(String imie) {
-        this.imie = imie;
+    public Person(long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public String getImie() {
-        return imie;
+    public long getId() {
+        return id;
     }
 
-    public void setImie(String imie) {
-        this.imie = imie;
+    public void setId(long id) {
+        this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <title>Hometasker</title>
 </head>
 <body>
 
-<h1>Lista domowników</h1>
+<h1>Domownicy</h1>
 
-<ul>
-    <li th:each="person: ${allPeople}"> <span th:text="${person.imie}"></span>
-    </li>
-</ul>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Imię</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person: ${people}">
+        <td th:text="${person.id}"></td>
+        <td th:text="${person.name}"></td>
+        <td>
+            <a th:href="'/edytujOsobe?id=' + ${person.id}">Edycja</a>
+            <a th:href="'/usunOsobe?id=' + ${person.id}">Usuń</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/dodajosobe" target="_blank">Dodaj osobę</a></br>
 
 </body>
 </html>

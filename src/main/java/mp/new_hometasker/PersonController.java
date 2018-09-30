@@ -18,14 +18,14 @@ public class PersonController {
     @GetMapping("/users")
     public String peopleList (Model model){
         List<Person> people = homeTaskerRepository.getPeople();
-        model.addAttribute("allPeople", people);
+        model.addAttribute("people", people);
         return "users";
     }
 
     @GetMapping("/dodajosobe")
     public String showAddForm(Model model){
-        model.addAttribute("newPerson", new Person());
-        return "dodawanie_osob";
+        model.addAttribute("person", new Person());
+        return "addPerson";
     }
 
     @PostMapping("/dodajosobe")

@@ -15,17 +15,17 @@ public class HomeTaskerRepository {
 
     public HomeTaskerRepository(){
     people = new ArrayList<>();
-    Person osoba1 = new Person("Janek");
-    Person osoba2 = new Person("Zosia");
-    Person osoba3 = new Person("Karol");
+    Person osoba1 = new Person(1, "Janek");
+    Person osoba2 = new Person(2, "Zosia");
+    Person osoba3 = new Person(3, "Karol");
     people.add(osoba1);
     people.add(osoba2);
     people.add(osoba3);
 
     tasks = new ArrayList<>();
-    tasks.add(new Task(1, "Mycie podłóg", osoba1.getImie(), 3, 2018, 12, 30, 18, 00));
-    tasks.add(new Task(2, "Malowanie", osoba2.getImie(), 10, 2020, 9, 30, 19, 00));
-    tasks.add(new Task(3, "Wyniesienie śmieci", osoba2.getImie(), 1, 2018, 10, 31, 12, 30));
+    tasks.add(new Task(1, "Mycie podłóg", osoba1, 3, 2018, 12, 30, 18, 00));
+    tasks.add(new Task(2, "Malowanie", osoba2, 10, 2020, 9, 30, 19, 00));
+    tasks.add(new Task(3, "Wyniesienie śmieci", osoba3, 1, 2018, 10, 31, 12, 30));
     }
 
     public List<Task> getTasks(){
@@ -62,10 +62,11 @@ public class HomeTaskerRepository {
 
     public Person find(String imie){
         for(Person person: people){
-            if(imie.equals(person.getImie())){
-               return person;
+            if(imie.equals(person.getName())){
+                return person;
             }
         }
         return null;
     }
+
 }

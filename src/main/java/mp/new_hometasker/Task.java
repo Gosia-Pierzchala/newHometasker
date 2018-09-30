@@ -4,11 +4,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 
 public class Task {
-    Person person = new Person();
 
-    private int id;
+    private long id;
     private String opis;
-    private String imie = person.getImie();
+    private Person person;
     private int punkty;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime date;
@@ -16,19 +15,19 @@ public class Task {
     public Task(){
     }
 
-    public Task(int id, String opis, String imie, int punkty, int rok, int miesiac, int dzien, int godzina, int minuty) {
+    public Task(long id, String opis, Person person, int punkty, int rok, int miesiac, int dzien, int godzina, int minuty) {
         this.id = id;
         this.opis = opis;
-        this.imie = imie;
+        this.person = person;
         this.punkty = punkty;
         this.date = LocalDateTime.of(rok, miesiac, dzien, godzina, minuty);
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -40,12 +39,12 @@ public class Task {
         this.opis = opis;
     }
 
-    public String getImie() {
-        return imie;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setImie(String imie) {
-        this.imie = imie;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     public int getPunkty() {
